@@ -11,16 +11,31 @@ namespace Business
     {
         Game _game;
         Customer _customer;
+        bool Validate = true;
         public Sale(Game game, Customer customer)
         {
             _game = game;
-            _customer = customer;   
+            _customer = customer;
         }
-        void ISale.Sale(Campaign campaign)
+        public void ValidationService(Customer customer)
         {
-            int fiyat = _game.GamePrice * campaign.CampaignDiscount / 100;
-            Console.WriteLine(_game.GameName+" Adlı oyunun asıl fiyatı:" + _game.GamePrice);
-            Console.WriteLine(_game.GameName+" başarıyla "+_customer.CustomerName+" adlı kişiye "+fiyat+" fiyatıyla satılmıştır.");
+            
         }
+        public void Sales(Campaign campaign)
+        {
+            if (Validate==true)
+            {
+                int fiyat = _game.GamePrice-(_game.GamePrice * campaign.CampaignDiscount / 100);
+                Console.WriteLine(_game.GameName + " Adlı oyunun asıl fiyatı:" + _game.GamePrice);
+                Console.WriteLine(_game.GameName + " başarıyla " + _customer.CustomerName + " adlı kişiye " + fiyat + " fiyatıyla satılmıştır.");
+            }
+            else
+            {
+                Console.WriteLine("Kullanici dogrulanamadi");
+            }
+           
+        }
+
+       
     }
 }

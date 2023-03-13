@@ -9,7 +9,7 @@ namespace Business
 {
     public interface ISale
     {
-        public void Sale(Campaign campaign);
-
+        void Sales(Campaign campaign);
+        void ValidationService(Customer customer);
     }
 }

@@ -12,6 +12,6 @@ namespace Entities
         public string CustomerTC { get; set; }
         public string CustomerName { get; set; }
         public string CustomerSurname { get; set; }
-        public DateTime BirthYear { get; set; }
+        public int BirthYear { get; set; }
     }
 }
